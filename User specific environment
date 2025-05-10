@@ -1,0 +1,21 @@
+# User specific environment
+
+# function to add a directory to PATH if it does not exist
+add_to_path() {
+  if [[ ":$PATH:" != *":$1:" ]]; then
+    export PATH="$PATH:$1"
+  fi
+}
+
+# Setup Custom PATH
+# Set GOROOT
+export GOROOT="/usr/local/go"
+# Set GOPATH
+export GOPATH="/home/$USER/go"
+
+
+# Add required directories to PATH
+add_to_path "$HOME/.local/bin"
+add_to_path "$HOME/bin"
+add_to_path "$GOROOT/bin"
+add_to_path "$GOPATH/bin"
